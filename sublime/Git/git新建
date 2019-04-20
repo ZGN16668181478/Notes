@@ -1,0 +1,5 @@
+yum remove git 移除原来版本git
+yum:自动更新组件安装系统
+echo命令的功能是在显示器上显示一段文字，一般起到一个提示的作用。该命令的一般格式为： echo [ -n ] 字符串
+config --list   ::::按q退出
+直接退出：ctrl+d

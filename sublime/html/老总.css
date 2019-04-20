@@ -1,0 +1,13 @@
+五、写程序
+1、 a{ text-decoration: none;font-family:'宋体'，font-size:12px;}
+    a:link{color: black}
+    a:visited{color:green;}
+    a:hover{color:white;background:red}
+    a:active{color:blue}
+
+2.  ul{list-style: none;}
+    li{display: block;}
+
+四、程序分析
+    1、表示所有二级标题的上内边距为10px，右内边距为15px
+    ,下内边距20px

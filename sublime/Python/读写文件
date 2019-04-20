@@ -1,0 +1,17 @@
+CSV: import csv
+    读：打开文件，csv.reader(path)
+    写：打开文件, csv.writer(path).writerow(content)
+PDF:pdfminer
+Music:  pygame.mixer.music模块   初始化(mixer)，加载音频文件，进行播放与其他操作
+    文件受损播放有问题
+设置墙纸：基于注册表对墙纸进行修改，  win32api,win32con,win32gui模块
+    打开注册表，设置强制的属性，将墙纸进行加载进来
+Word:doc模块和docx模块，win32com对两种都可以读取
+    word = win32com.client.Dispatch("Word.Application") 这里打不开
+    word.Document.Open(path)
+    然后再在文件里一行一行的进行读取
+Excel:  OderedDictDict有序字典
+    读取：
+        1.openpyxl.reader.excel:只能处理xlsx文件，(old .xls file format)
+        2.pyexcel_xls import get_data 两种都能处理
+    写入：save_data   不能处理xlxs

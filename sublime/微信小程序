@@ -1,0 +1,10 @@
+微信小程序中的业务逻辑是脱离视图而单独存在的。
+数据绑定：WXML中的动态数据均来自对应Page的data，双向映射
+前台驱动
+page:用来注册一个函数，接受一个object参数。绑定数据
+生命周期函数 onLoad onReady onShow onHide onUnload
+事件：bindTap和catchTap(冒泡事件)
+navigateTo进行跳转
+数据的导出和导入 export和require
+wx:for 只能遍历数组
+template模板 ：定义模板 使用模板 文件夹中不能创建js和json  只能使用data将数据进行传入

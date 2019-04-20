@@ -1,0 +1,12 @@
+10054
+HTTP 403
+    禁止爬虫加入代理：
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0'}  
+    req = urllib.request.Request(url=chaper_url, headers=headers)
+Error -3
+Error -2
+java的爬虫框架gecco
+java沙箱
+http访问时会出现，此时需要https
+    http.client.RemoteDisconnected: Remote end closed connection without respons
+    http.client.UnknownProtocol: HTTP/2.0

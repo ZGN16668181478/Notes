@@ -1,0 +1,4 @@
+关于第三方模块安装：
+    pip安装: pip install xxx
+    克隆安装：git clone https://xxxx
+    源码安装：curl -L https://xxxx | tar xz

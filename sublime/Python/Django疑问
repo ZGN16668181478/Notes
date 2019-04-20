@@ -1,0 +1,11 @@
+shor-description的适用途径
+在setting里对templates进行设置的目的是什么
+AttributeError: Manager isn't accessible via grades instances
+    objects是Manager在类级别可用，而不是实例 
+super(StudentsManager,self)
+HttpResponse()中不能传递变量？
+关于django中路径的问题，顺斜杆到底怎么使用
+django2.2rc1 安装时对pymysql版本有要求
+自动捕获路径中url,href,src图片，链接的原则
+Not Found: /favicon.ico
+关于settings.py文件中名字的定义都有哪些，为什么这么定义

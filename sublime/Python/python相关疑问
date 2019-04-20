@@ -1,0 +1,28 @@
+关于.py 文件纯文本不被解释器识别的问题
+socket.py 出现文本编码文字，不能转换utf-8
+127.0.0.1:8000
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd3 in position 0: invalid continuation 
+    解决：在mimetypes.py里配置defaul_encoding    reload(sys)
+    主要是：sys._enablelegacywindowsfsencoding()进行加入
+os.path.join(path1,path2)中path2若为跟目录，则拼接路径也会发生改变
+AttributeError: Manager isn't accessible via grades instances
+    使用了实例名当做变量, eg: Student().objects.all()  这是错的
+django配置用户是，里面的一个关于User的表和进入超级用户有关，需要进行注意
+ModuleNotFoundError: No module named 'exceptions'
+    python3.x中移除了exceptions模块，但docx调用了,安装最新模块即可
+TypeError: __init__() missing 1 required positional argument: 'on_delete'
+    on_delete=models.CASCADE
+pip 安装出错，pycharm和scripts都有版本  
+    AttributeError: 'NoneType' object has no attribute 'bytes'
+    解决：easy_install -U pip
+pip 修改安装源
+django中： post和get请求 
+            os.path.join(BAS_DIR,'templates')中路径的直接连接，然后进行引用
+io.UnsupportedOperation is not readable
+    这里是模式的选择，就像w+模式进行读文件，就会让文件内容消失
+读取文件：
+    AttributeError: Kwps.Application.Document
+    pywintypes.com_error: (-2147221005, '无效的类字符串', None, None)
+NotImplementedError: formatting_info=True not yet implemented
+    将这个抛异常的源文件进行删除就可以了
+PermissionError: [Errno 13] Permission denied:

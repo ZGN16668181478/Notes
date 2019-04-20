@@ -1,0 +1,35 @@
+连接：net start 服务名称
+断开：net stop 服务名称
+查看版本： select version(); 进入页面
+查看时间： select now(); 
+远程连接： mysql -h ip地址 -u 用户名 -p 
+切换数据库：use 数据库名
+查看当前数据库：select database();
+表重命名：rename table 原表名 to 新表名
+修改表：alter table 表名 add|change|drop 列名 类型
+插入表时：主键列是自增长，但是在全列插入时需要占位，通常是0,插入成功后以实际数据为标准
+全列插入：insert into table_name values()
+缺省插入：insert into talbe_name(列1，..) values ()
+同时插入多条数据：insert into table_name values (一行),(两行),(多行)
+修改表：update table set ...  后面没有where条件就是修改全部列
+查询表：
+    消除重复行：select后面列前面加入distinct可以消除重复行 eg:select distinct name from table_name;
+    条件查询：
+        比较运算符：=，>,<,>=,<=,!=(<>)
+        逻辑运算符：and, or, not
+        模糊查询：%(代表多个任意字符),_(表示任意一个字符)
+        范围查询：in, between
+        空判断：is null, is not null
+        优先级：小括号>not>比较运算符>逻辑运算符  and比or优先级高，同时出现需要小括号
+    聚合：
+        count(*),max(),min(),sum(),avg()   都可以求某列的相应值
+    组合： group by
+        按字段分组，表示此字段相同的数据会被放到一个集合中，分组后只能查询出相同的数据列，对有差异的数据列无法显示在结果集中，可以在分组后的数据进行统计，做聚合运算
+        eg：select 列1,... from 表名 group by 列1，... having gender;
+        where和having的区别：where是对from后面的表进行筛选，属于对原始数据的筛选，having是对group by的结果进行筛选
+    排序：order by
+        默认从小到大，asc|desc ,前者为升序，后者为降序
+        eg: select * from 表名 order by 列1 asc|desc, 列2 asc|desc,....
+    分页：limit
+        eg: select * from table_name limit start,count;
+

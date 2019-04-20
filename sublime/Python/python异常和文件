@@ -1,0 +1,41 @@
+处理异常：
+    except 和 finally至少有一个,else可有可无
+    异常的传播:没有处理就会一直向外传播，直到全局，所有异常信息会被存到一个异常对象里
+    抛异常：raise Exception 注意后面没有引号   raise后可以加异常类或异常实例
+    断言：assert (a!=0),'a不等于零'
+文件：
+    1.打开文件 
+        open(path,flag,[encoding,error]):一种打开纯文本文件，一种二进制文件(音频,ppt等),注意文件路径问题
+        path表示文件路径，包括文件名，flag打开方式，error为错误处理，eroor=ignore
+            \可以用\\ 或 / 或 r'path'  r表示原始字符串
+    2.对文件进行操作
+        读文件：
+            read(param)  -1代表读取所有，其余的代表一次读取多少位数
+            readline: 无返回
+            readlines:读取所有行封装到一个列表里进行返回
+            读取文件的位置：
+                tell:查看当前读取到的位置,返回读取到的位置
+                seek:可以修改当前读取的位置,返回读取到的位置
+                    eg:seek(key1,[key2])
+                        key2可以为:0：从头计算
+                                   1:从当前位置计算
+                                   2：从最后位置计算    
+        写文件:open(mode='r')默认为可读
+            write(content)
+            w:可写,如果文件不存在，则会新建  w+:可写+可读     同左
+            r:可读,如果文件不存在，则会报错  r+:可读+可写     同左
+            a:追加,如果文件不存在，则会新建  a+:可读+可追加   同左
+    3.关闭文件
+文件的部分其他操作：通过os模块   文件名称都可以在前面加上路径！！！
+    目录：创建目录：os.mkdir()
+         显示指定目录列表：os.listdir(path),path默认为当前目录
+         获取当前所在目录：os.getcwd()
+         修改目录：os.chdir(path)相当于cd
+         删除目录：os.rmdir(path)
+    文件：通过open可以创建
+         删除文件：os.remove(name)
+         重命名：os.rename(old_name,new_name)
+    其他：shell命令，路径的拼接和拆分，获取拓展名，环境变量
+    数据的持久性模块：pickle
+        pickle.dump(),pickle.load()
+

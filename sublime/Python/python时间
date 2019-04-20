@@ -1,0 +1,25 @@
+time模块：
+    当前时间戳: time.tme()
+    将时间戳转成UTC时间元组：time.gmtime(时间戳)
+    将时间戳转成本地时间元组：time.localtime(时间戳)
+    元组转成字符串：time.asctime(tuple)
+    时间戳转成字符串：time.ctime(timestamp)
+    将时间元组转换成给定格式的字符串：time.strtime([pattern],时间元组)
+    time.sleep()
+    time.block():计算CPU的运行时间
+
+datetime模块：
+    类：datetime,timedelta,tzinfo(失去相关),time,date
+    方法：
+        当前时间：d1 = datetime.datetime.now()
+        指定时间：d2 = datetime.datetime(1999,02,03)
+        时间转成字符串：d2 = d1.strftime(pattern)
+        格式化字符串转成datetime对象(注意前后字符串一致):datetime.datetime.strptime(d3,pattern)
+        时间差：delta = datetime.datetime-datetime.datetime
+
+calendar模块：
+    某年某月：calendar.month(year,month)
+    某年：calendar.calendar(year)
+    是否是闰年：calendar.isleap(year)
+    返回weekday的天数和月天数：calendar.monthrange(year,month)
+    按一周作为一个列表的列表返回：calendar.monthcalendar(year,month)

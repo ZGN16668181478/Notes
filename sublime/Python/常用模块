@@ -1,0 +1,20 @@
+处理文件：
+    win32con,win32api,win32com,win32gui,win32com.client
+    pygame,pygame.mixer.music
+    pyexcel_xls
+    collections
+    pydoc,docx
+    csv
+    functools
+    pdfminer
+    doctest(可以提取''''''注释中的代码进行执行),unittest：文档测试和单元测试
+    atexit: 脚本运行完之后执行一些代码，eg: 在代码最后进行停止运行，无论代码怎样都会停
+    glob: glob.glob(pattern)函数  进行搜索文件
+    inspect: 调试
+    uuid: 生成唯一ID  id = uuid.uuid1()
+    pickle: 序列化
+    zlib: 压缩字符
+    telnetlib:远程连接控制
+    itertools:
+    Tesseract: 机器学习库，可以用来爬虫识别验证码  (识别图片中的文本)
+    Selenium + PhantomJS ：提取动态内容(js,ajax内容等非静态内容)

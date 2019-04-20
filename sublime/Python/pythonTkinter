@@ -1,0 +1,52 @@
+创建：tk = tkinter.Tk()
+结束：tk.mainloop()
+窗口：
+    标题:tk.title(),大小:tk.geometry()
+控件：   t = tkinter.控件名()    t.方法()
+    tkinter.Label:控制简单的标签样式和布局
+    tkinter.Button：创建按钮和按钮样式
+    tkinter.Entry(host,[show='密文显示'])：显示简单文本内容，e=tkinter.Variable()绑定变量,e代表Entry输入框的这个对象，e.get,e.set进行设置和取值
+    tkinter.Text：文本控件，显示多行文本
+    tkinter.ScrollBar：滚动条
+    tkinter.BooleanRar:定义布尔变量
+    tkinter.Checkbutton:
+    tkinter.Radiobutton:单选框里的变量需要绑定同一个变量,需要在里面加入value变量,才能进行单选
+    tkinter.Listbox:在listbox控件小窗口显示一个字符串
+        创建：selectmode=tkinter.BROWSE,
+        添加：可以通过遍历添加,可以tkinter.END和tkinter.ACTIVE添加
+        删除：t.delete(begin,[end]),没有end默认删除begin索引一个
+        选中：t.select_set(begin,[end]),同上
+        取消选中: t.select_clear(begin,[end])
+        获取元素个数：t.size()
+        取值：t.get(begin,[end])
+        当前索引：t.curselection()
+        是否选中：t.selection_includes(index)
+        绑定事件：bind('<Double-Button-1>',fn),Doubel(双击)Button(按钮)1(左键),fn函数编写是需要进行传入一个事件变量，但调用时无需传入
+    tkinter.Scale:通过拖拽改变变量的值,水平或垂直
+        其中参数：from_(注意下划线！！),to,orient(水平或垂直),length(水平为宽度,数值为高度),tickinterval(分布间隔)
+    tkinter.Spinbox:
+    tkinter.Menu:菜单条
+        添加一个大的菜单条,大菜单条里添加一个小菜单条,小菜单条里添加数据,get取不了数据，可以通过绑定变量来获取数据
+    tkinter.ttk.Combobox:设置下拉框控件
+    tkinter.Frame:框架控件，注意pack(side=xxx)这样来放置控件位置
+    tkinter.ttk.Treeview: 
+        设置列让表里有位置,再设列名(表头)，再插入数据
+        树状图,一层一层进行插入
+    布局：
+        相对布局: pack()
+        绝对布局: place()
+        表格布局：grid(row=0,column=1)
+    绑定事件：
+        command
+        bind(): 控件都可以绑定事件
+            <[Double,Triple]-Button-i>(单(双)击鼠标键)
+            <Enter>:光标进入控件,相反<Leave>
+            <Bi-Motion>:左键按住移动控件事件发生(好像3.x没了)
+            <Key>:单击一个键盘键发生,需要设置焦点先
+                Shift_l,Shift_r,Return(回车),Backspace,Control-Alt-a
+            <ButtonReleased-i>: 释放键时事件发生(好像3.x没了)
+    tkinter.Variable:创建变量，后面通过get,set方法进行获得和修改变量
+        e = tkinter.Variable()  e.set('xxxx')  e.get()
+        entry = tkinter.Entry(win,textvariable=e)
+加载控件：tkinter.控件.pack([]),pack中有个side属性，定位控件的打包位置
+获取内容：绑定变量get获取，set设置，事件event中调取

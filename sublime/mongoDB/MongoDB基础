@@ -1,0 +1,87 @@
+MongoDB：
+    数据库：通过名字辨识，每个数据库都有自己的集合和权限
+        名称：不能使空字符串"",不能有(空格 . $ \ \0)  应全部小写，最多64字节
+        有些数据库是保留的，可以直接进行访问： admin,local,config
+    文档：collection,是MongoDB最核心，相当于mysql中每一行,多个键值对有序放到一块就是文档 BSON数据
+        attention：文档中的键值对是有序的，区分大小写，文档不能有重复的值
+        文档键命名规范：
+                    \0(空字符)表示键的结尾，键不能含有
+                    $(特定环境使用)
+                    _(下划线)开头的键是保留的(没有严格要求)
+    集合：
+
+
+mongod.exe：创建数据库
+mongo.exe: 操作数据库
+
+基本操作：
+    数据库：
+        1.创建数据库：use 数据库名 (若数据库不存在就创建数据库，存在就切换到该数据库)
+        2.删除数据库：(进入该数据库)  db.dropDatabase()
+        3.查看所有数据库：show dbs (前提是数据库不为空)
+        4.当前数据库：db， db.getName()
+        5.断开连接：exit
+        6.查看命令api: help
+    集合：
+        1.查看集合
+            show collections
+        2.创建集合
+            db.createCollection(集合名)
+            db.集合名.insert(document)  也可以像这种进行插入一样进行创建集合
+        3.删除集合
+            db.集合名.drop()
+    文档：
+        1.插入文档：
+            insert:插入一个或多个，多个为中括号列表 insert([d1,d2,...])
+            save:可以根据_id属性来进行修改该id的属性，不指定_id就类似insert指令
+        2.文档更新
+            update:用于更新已存在的文档
+                db.集合名.update(
+                    <query>,    # 类似于sql中where后的判断条件
+                    <update>,   # update的兑现和更新操作符($set,$inc)：$set直接更新,$inc在原有基础上进行累加后更新(increase)
+                    {
+                        upset:<boolean>,  # 判断是否进行插入，默认false
+                        multi:<boolean>,    # 更新多条数据，false只更新找到的第一条数据
+                        writeConcern:<document>   # 抛出异常的级别，可选
+                    }
+                )
+            save：通过传入的文档替换已有文档
+                db.集合名.save(document,{writeConcern:<document>})
+        3.文档删除：执行之前尽量先执行find()判断执行条件是否存在
+            db.集合名.remove(query,{justOne:<boolean>(可选),writeConcern:<document>})
+        4.文档查询：
+            1.find:查找集合下所有文档   db.集合名.find()
+            2.find方法查询指定列(尽量选择条件为gender这种类型种类很少)
+                db.集合名.find(
+                    query,
+                    {
+                        <key>:1,  # 为要查询的字段，1表示显示
+                        <key2>:1,...})
+            3.pretty:格式化方式显示文档      db.集合名.find().pretty()
+            4.findOne查询匹配到的第一个数据   db.集合名.findOne(query)
+        5.查询条件操作符  ：用于比较两个表达式并从MongoDB种提取数据
+            1.大于：$gt    db.集合名.find({<key>:{$gt:<value>}})   
+                eg：db.student.find({age:{$gt:10}})
+            2.小于：$lt
+            3.等于：$ :    eg:db.student.find({age:10})
+            4.介于多少之间($gte和$lte)： db.集合名.find({<key>:{$gte:<value>,$lte:<value2>}})(习惯性的大于在前面)
+            5.大于等于：$gte
+            6.小于等于：$lte
+            7.根据_id进行查询 
+            8.查询某个结果集的数据条数   db.student.find().count()
+            9.查询某个字段的值是否包含另一个值     db.student.find({name:/jinja/})
+            10.查询某个字段的值是否以另一个值开头    db.student.find({name:/^jinja/})
+        6.条件查询and 和 or
+            1.AND条件：db.集合名.find({条件1,条件2,...})
+            2.OR条件：db.集合名.find({$or:[{条件1},{条件2},...]})
+            3.and or联合使用：db.集合名.find({条件1,$or:[{条件2},{条件3}]})
+        7.limit,skip
+            1.limit:指定读取数量的数据记录
+                db.student.find().limit(amount)
+            2.skip:跳过指定数量的数据
+                db.student.find().skip(amount)
+            3.联合使用
+                db.student.find().skip(amount).limit(amount)
+        8.排序
+            db.集合名.find().sort({<key>:1|-1})  # 1为升序，-1降序
+            eg: db.student.find().sort({age:1})

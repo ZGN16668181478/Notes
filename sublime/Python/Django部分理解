@@ -1,0 +1,35 @@
+虚拟环境的搭建，配合各个版本的的运行   workon 打开虚拟环境
+Django项目建立时需要分成不同app文件夹  
+静态文件(static)：css  js  img
+日志文件:  log 
+用户的上传文件： media
+存放html页面: template
+    让html页面被访问：
+        先在urls.py进行配置
+        添加一个页面需要在视图views里进行添加get方法，然后在urls.py进行模块引入
+            注意：这里配置完了默认页面会失效，因为urls.py里有两个路径
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        路径需要做一个连接
+进行引入时：路径太麻烦是就直接将.py文件设置为source root
+manage.py:
+    makemigrations:生成默认数据库表
+    migrate:生成表的过程
+subclass ModelAdmin： 模型管理子类
+由于模型类和管理器里不能写__init__方法，所以可以在里面通过方法创建两种对象
+get个post请求
+cookie和session
+ajax响应 
+模板几种调用方式
+几个模块：PIL(在django2.X 在pillow里的名字为Pil)  IO(模块自带)
+HttpResponse()  中内容会自动进行
+项目下urls里的include方法不要引入views，会造成app文件下重复引入
+关于打开服务器还是原来页面：关闭python.exe，重新打开就可以了
+配置url就相当于配置环境变量，之后就可以直接使用了
+在你创建模型和视图之前,你必须要告诉Django你的新应用的存在.所以你必须修改你配置目录里的settings.py文件.打开文件找到INSTALLED_APPS元组.在元祖的最后面增加rango.
+为了建立映射,我们用到了tuple.在Django里必须用urlpatterns来命名这个元组.
+STATICFILES_DIRS，这个表示django的findstatic是要去那个目录去找这些静态文件。
+关于开始配置static很长时间见都没有响应的问题：
+    一定要注意拼接static路径的STATICFILES_DIRS的名字！！！！
+    1, 建立STATICFILES_DIRS[](注意是列表或者是元组,不是字典!), 把static的地址加入到里面, 同时注意不能包含STATIC_ROOT里面的地址, 否则会报错(ImproperlyConfigured: The STATICFILES_DIRS setting should not contain the STATIC_ROOT setting),这样在实际环境还是生产环境都能完美运行.(推荐)
+
+    2, 保持原有设置不变, 但是把static复制到应用中的文件夹里面, 用于调试. 调试的时候模板调用的是应用中文件夹的static, 那么修改的也应该修改这个, 调试完毕再把它覆盖到真正的static提交, (亲身试验过可行, 但是很麻烦, 每次提交都要先覆盖, 在知道1这个答案之前我一直用这个方法)

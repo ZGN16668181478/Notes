@@ -1,0 +1,113 @@
+小海龟的动作
+爬行
+    前进:forward/fd
+    后退:back/bk/backward
+    右拐(顺时针转):right/rt
+    左拐(逆时针转):left/lt
+    爬到指定位置:goto/setpos/setposition
+    x轴上移动:setx
+    y轴上移动:sety
+    转向指定方向:setheading/seth
+    回家:home
+    画圆:circle
+    画点:dot
+    海龟分身:stamp
+    分身解除:clearstamp
+    批量分身解除:clearstamps
+    时光回溯:undo
+    调速:speed
+海龟状态查询
+    海龟位置:position/pos
+    小海龟的头部与目标间的角度:towards
+    x坐标查询:xcor
+    y坐标查询:ycor
+    当前方向:heading
+    距离查询:distance
+定制规则
+    一圈有多少度:degrees
+    用弧度:radians
+画笔
+    下笔(肚皮贴地):pendown/pd/down
+    抬笔(肚皮离地):penup/pu/up
+    笔粗:pensize/width
+    画笔(海龟)状态总控:pen
+    是否在画:isdown
+颜色控制
+    画笔颜色:pencolor
+    填充颜色: fillcolor
+    颜色总控:color
+填充控制
+    填充状态:filling
+    开始填充:begin_fill
+    正式填充:end_fill
+更多骚操作
+    初始化:reset
+    清理沙滩:clear
+    写字:write
+其他海龟参数
+海龟可见
+    隐藏海龟:hideturtle/ht
+    显示海龟:showturtle/st
+    海龟可见状态查询:isvisible
+海龟外观
+    海龟外形:shape
+    海龟大小缩放:resizemode
+    海龟大小详细设置:shapesize/turtlesize
+    海龟剪切系数:shearfactor
+    海龟外形旋转:tilt/settiltangle
+    海龟外形角度查询:tiltangle
+    海龟外形总控:shapetransform
+    海龟外观获取:get_shapepoly
+事件监听器
+    监听器:listen
+    监听鼠标按键按下:onclick
+    监听鼠标按键抬起:onrelease
+    监听鼠标按键拖动:ondrag
+    监听键盘按键:onkey/onkeyrelease/onkeypress
+    定时操作:ontimer
+    时间循环:mainloop/done
+更多海龟操作
+    开始记录多边形:begin_poly
+    结束记录多边形:end_poly
+    获取记录到的多边形:get_poly
+    克隆海龟:clone
+    查询海龟:getturtle/getpen
+    查询屏幕:getscreen
+    设定undobuffer:setundobuffer
+    查询undobuffer:undobufferentries
+    Screen/TurtleScreen操作
+窗口控制
+    背景色:bgcolor
+    背景图:bgpic
+    窗口size:screensize
+    world坐标:setworldcoordinates
+动画操作
+    延迟:delay
+    快速绘图:tracer/update
+输入操作
+    弹出文本输入框:textinput
+    弹出数字输入框:numinput
+模式设定
+    绘画模式:mode
+    颜色模式:colormode
+    查询画布:getcanvas
+    查询图形:getshapes
+    注册新图形:register_shape/addshape
+    查询海龟:turtles
+    查询屏幕尺寸:window_height/window_width
+    屏幕特有操作(非继承自TurtleScreen)
+    关闭海龟绘图窗口:bye
+    点击鼠标后关闭:exitonclick
+    屏幕设定:setup
+    屏幕标题:title
+公共类
+    造龟:RawTurtle/RawPen
+    默认造龟:Turtle
+    海龟屏:TurtleScreen
+    屏幕:Screen
+    卷屏:ScrolledCanvas
+    图形类:Shape
+    向量:Vec2D
+    转换语言:write_docstringdict
+    turtle配置文件
+    漂亮的turtledemo

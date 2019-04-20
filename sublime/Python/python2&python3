@@ -1,0 +1,22 @@
+性能：py2性能较高，py3有较大的的优化空间
+编码：py3源码文件默认是utf-8，变量名更广阔
+语法：
+    取出<> 改为！=
+    加入as、with、True、False、None
+    整形除法返回浮点，整除用//
+    加入nonlocal语句
+    取出print语句,加入print函数
+    取出raw_input,加入input函数
+    新的super(),可以不用传参数
+    改变顺序操作的行为，如x<y，类型不匹配直接抛异常，不进行比较
+    加入了八进制  eg:0123
+    字符串和字节串：
+        py2以8-bit存储(内存不够，中文容不下)
+        py3以16-bit Unicode存储，只有str一种类型
+    出去了long类型，加入了bytes类型，对应于2.x版本的八位串
+    面向对象：引入抽象基类  object
+    异常：继承基类，删除StandardError,异常加入as做别名，py2为逗号
+    xrange()改为range(),file类被遗弃
+单元测试和文档测试：  
+    unittest:通过断言来进行测试
+    doctest：可以对'''''注释进行读取

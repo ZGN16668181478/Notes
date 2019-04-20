@@ -1,0 +1,6 @@
+对于爬取数据中的网页里的换行符(br)怎么进行处理
+关于获取页面中的json数据，json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+http://img12.360buyimg.com/n7/s230x322_jfs/t1/23613/20/11734/429397/5c91a61dE514be31e/3ba6474e8f084291.jpg!cc_230x322.jpg
+关于存储路径：因为在方法内设置路径，导致文件名越加越长
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+    可能是爬取速度太快了：降低频率，模拟不同的访问请求(代理ip,变换user-agent,referer,cookie等)

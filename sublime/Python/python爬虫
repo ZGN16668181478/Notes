@@ -1,0 +1,42 @@
+urllib模块:urllib.request
+    爬取路径:urllib.request.urlopen(path)
+    urllib.request.urlretrieve(path,new_path)  new_path也是可以是带路径的
+    获取信息:info()   
+    获取url:geturl()  
+    获取状态码:getcode()   200正常
+BeautifulSoup解析数据:  soup = BeautifulSoup()
+    soup.prettify()：格式化数据
+    1.通过标签获取:返回值为字典
+        soup.p
+        soup.p.string:获取p中内容
+        soup.p.attrs:获取p元素中的属性
+        soup.p['class']:获取p中class属性的值
+    2.通过css样式获取soup.select:返回值为列表  用遍历形式输出，然后用get_text()方法获取内容
+        通过标签查找：soup.select('label')
+        通过类名查找：soup.select('class_name')
+        通过id查找：soup.select('id_name')
+        组合查找：soup.select('p a')    查找p下的a
+        通过字标签查找：soup.select('head > titile')    head下的title
+        通过属性查找：soup.select('a[name="a_name"]')  注意属性和标签是同以节点，不能用空格
+
+HTTP请求：
+    GET ：通过url网址传递信息，直接在网址上看到要传递的信息
+    POST ：可以向服务器传递信息，比较安全
+    PUT ：请求服务器存储一个资源，通常需要指定存储的位置
+    DELETE ：请求服务删除一个资源
+    HEAD ：请求获取对应的HTTP报头消息
+    OPTIONS ：可以获取当前url支持的请求类型
+# 链接在<a>标签的href中，提取标签中的href属性用get()方法，括号指定属性数据
+ # 标签在<a>标签中，提取标签的正文用get_text()方法
+
+JSon：通常作为将它成为轻量级的传输方式
+        {} 代表对象
+        [] 代表列表
+        ： 代表键值对
+        ， 分割两个部分
+    方法：
+        远程读取和写入： json.loads()  json.dumps()   eg:字符串转换为json文件，反之
+        本地读取和写入： json.load()   json.dump()
+
+
+让百度搜索找到你的的网站，可以去百度站长平台进行注册网址

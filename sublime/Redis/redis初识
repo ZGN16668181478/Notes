@@ -1,0 +1,79 @@
+1、String 
+    概述：是Redis最基本的类型，最大能存储512MB的数据，String是二进制安全的，即可以存储任何类型的数据，比如数字、图片、序列化对象等。
+    1.设置：
+        1.设置键值： set key value
+        2.设置键值及过期时间，以秒为单位：  setex key seconds value
+        3.设置多个键值： mset key value [key value ....]
+    2.获取：
+        1.根据键值获取，如果键值不存在返回None(null, 0, nil)
+            get key 
+        2.根据多个键获取多个值
+            mget key [key ...]
+    3.运算： 要求值是字符串类型的数字
+        1.将key对应的值加1： incr key
+        2.将key对应的值减1： decr key
+        3.将key对应的值加整数： incrby key intNum
+        4.将key对应的值减整数： decrby key intNum
+    4.其他：
+        1.追加值： append key value  (返回值的长度)
+        2.获取值的长度： strlen key
+2、key：
+    1.查找键，参数支持正则  : keys pattern
+    2.判断键是否存在，存在返回1，不存在返回0   ：exists key(好像支持判断多个键值，try)
+    3.查看键对应的value类型 ： type  key
+    4.删除键及对应的值： del key [key ...]
+    5.设置过期时间，以秒为单位 ： expire key seconds
+    6.查看键存在的有效时间，以秒为单位： ttl key
+3、hash: 用于存储对象 {name:'shit',age:10}  (这里可以理解是对象里还有键值对)
+    1.设置
+        1.设置单个值： hset key field value
+        2.设置多个值： hmset key field value [field value]
+    2.获取
+        1.获取一个属性的值： hget key field
+        2.获取多个属性的值： hmget key field [key field]
+        3.获取所有属性和值： hgetall key
+        4.获取所有属性： hkeys key
+        5.获取所有值： hvals key
+        6.返回包含数据的个数： hlen key
+    3.其他
+        1.判断属性是否存在，存在返回1，不存在返回0：  hexists key field
+        2.删除属性及值： hdel key field [key field ...]
+        3.返回值的字符串长度： hstrlen key field(3.2后Redis开始支持)
+4.list
+    概述： 列表元素类型为string，按照插入顺序排序，在列表头部或尾部添加元素
+    1.设置 (这里直接进行插入，会自己创建一个list)
+        1.在头部插入： lpush key value [key value ...]
+        2.在尾部插入： rpush key value [key value ...]
+        3.在一个元素的前|后插入新元素： linsert key before|after pivot value
+            eg: linter key before 1 4 (这里1是list里的value)
+        4.设置指定索引的元素值： lset key index value (index从零开始，可以是负数，即为倒数)
+    2.获取
+        1.移除并返回key对应的list的第一个元素： lpop key
+        2.移除并返回key对应的list的最后一个元素： rpop key
+        3.返回存储在列表内指定范围的元素： lrange key start end (索引从零开始)
+    3.其他
+        1.裁剪列表，改为原集合的一个子集：  ltrim key start end (索引从零开始，可以负数)
+        2.返回存储在key里的list长度： llen key
+        3.返回列表中索引对应的值： lindex key index
+5、set
+    概述： 无序集合，元素为string类型，元素具有唯一性，不重复
+    1.设置
+        添加元素： sadd key member [member ...]
+    2.获取
+        1.返回key集合中所有元素： smembers key
+        2.返回集合元素个数： scard key
+    3.其他
+        1.求多个集合的交集： sinter key [key ...]
+        2.求多个集合的差集： sdiff key [key ...]
+        3.求多个集合的合集： sunion key [key ...]
+        4.判断元素是否在集合中，存在返回1，不存在返回0： sismember key member
+6.zset
+    概述：有序集合元素类型为string，元素具有唯一性，不能重复
+        每个元素都会关联一个double类型的权重(score),通过权重的大小排序，权重可以相同
+    1.设置
+        添加： zadd key score member [score member ...]
+    2.获取
+        1.返回指定范围的元素： zrange key start end
+        2.返回元素个数： zcard key
+        3.返回有序集合key中，score在min和max之间的元素： zcount key min max
+        4.返回有序集合key中，成员member的score值
